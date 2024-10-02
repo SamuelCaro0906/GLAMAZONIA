@@ -586,11 +586,26 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <footer>
         <p>&copy; 2024 Daloha_col. Todos los derechos reservados.</p>
     </footer>
+    <script>
+    let currentIndex = 0;
+
+    function moveCarousel() {
+        const carousel = document.getElementById('carousel');
+        const items = document.querySelectorAll('.product');
+        const totalItems = items.length;
+
+        currentIndex = (currentIndex + 1) % (totalItems / 3); // Cambia el divisor según el número de elementos que quieras mostrar por vez.
+        const offset = -currentIndex * (200 + 20); // 200 es el ancho de los productos y 20 es el margen.
+        carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    setInterval(moveCarousel, 3000); // Cambia cada 3 segundos
+</script>
+
 </body>
 </html>
