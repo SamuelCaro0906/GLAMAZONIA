@@ -59,7 +59,6 @@ nav ul li a:hover {
 
 /* Sección Hero */
 .hero {
-    background-image: url('https://cdn-icons-png.flaticon.com/512/5732/5732023.png');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -122,6 +121,7 @@ nav ul li a:hover {
 .product:hover {
     transform: scale(1.05);
 }
+
 /* Pie de página */
 footer {
     background-color: #cf3476;
