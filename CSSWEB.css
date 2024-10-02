@@ -94,27 +94,28 @@ nav ul li a:hover {
     background-color: #f9f9f9;
 }
 
-.product-grid {
-    display: grid;
-    gap: 20px;
-    margin-bottom: 40px;
+/* Carrusel */
+.carousel {
+    overflow: hidden;
+    width: 100%;
 }
 
-.grid-27, .grid-12, .grid-18, .grid-15 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-8, .grid-9 {
-    grid-template-columns: repeat(2, 1fr);
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 .product {
+    min-width: 300px;
+    margin-right: 20px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: grab;
 }
 
 .product img {
@@ -173,4 +174,7 @@ footer p {
 
 /* Media Queries */
 @media (max-width: 768px) {
-   
+    .product {
+        min-width: 250px;
+    }
+}
