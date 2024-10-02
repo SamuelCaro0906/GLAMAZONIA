@@ -37,73 +37,93 @@
 
         <!-- Tops y Bodys -->
         <h3>Tops y Bodys (27 productos)</h3>
-        <div class="product-grid grid-27">
-            <!-- Aquí colocas los productos con su imagen y precio -->
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Producto 1">
-                <h4>Producto 1</h4>
-                <p>$30.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <!-- Producto 1 -->
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Producto 1">
+                    <h4>Producto 1</h4>
+                    <p>$30.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 27 -->
             </div>
-            <!-- Añadir más productos similares -->
         </div>
 
         <!-- Vestidos Cortos -->
         <h3>Vestidos Cortos (12 productos)</h3>
-        <div class="product-grid grid-12">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Vestido Corto 1">
-                <h4>Vestido Corto 1</h4>
-                <p>$40.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Vestido Corto 1">
+                    <h4>Vestido Corto 1</h4>
+                    <p>$40.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 12 -->
             </div>
         </div>
 
         <!-- Conjuntos y Pants -->
         <h3>Conjuntos y Pants (18 productos)</h3>
-        <div class="product-grid grid-18">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Conjunto 1">
-                <h4>Conjunto 1</h4>
-                <p>$50.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Conjunto 1">
+                    <h4>Conjunto 1</h4>
+                    <p>$50.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 18 -->
             </div>
         </div>
 
         <!-- Vestidos Largos -->
         <h3>Vestidos Largos (15 productos)</h3>
-        <div class="product-grid grid-15">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Vestido Largo 1">
-                <h4>Vestido Largo 1</h4>
-                <p>$70.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Vestido Largo 1">
+                    <h4>Vestido Largo 1</h4>
+                    <p>$70.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 15 -->
             </div>
         </div>
 
         <!-- Deportivos -->
         <h3>Deportivos (8 productos)</h3>
-        <div class="product-grid grid-8">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Deportivo 1">
-                <h4>Deportivo 1</h4>
-                <p>$35.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Deportivo 1">
+                    <h4>Deportivo 1</h4>
+                    <p>$35.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 8 -->
             </div>
         </div>
 
         <!-- Outlet -->
         <h3>Outlet (9 productos)</h3>
-        <div class="product-grid grid-9">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Outlet 1">
-                <h4>Outlet 1</h4>
-                <p>$20.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Outlet 1">
+                    <h4>Outlet 1</h4>
+                    <p>$20.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 9 -->
             </div>
         </div>
 
         <!-- Accesorios -->
         <h3>Accesorios (12 productos)</h3>
-        <div class="product-grid grid-12">
-            <div class="product">
-                <img src="https://via.placeholder.com/300" alt="Accesorio 1">
-                <h4>Accesorio 1</h4>
-                <p>$15.00</p>
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="product">
+                    <img src="https://via.placeholder.com/300" alt="Accesorio 1">
+                    <h4>Accesorio 1</h4>
+                    <p>$15.00</p>
+                </div>
+                <!-- Repetir productos aquí hasta el producto 12 -->
             </div>
         </div>
     </section>
@@ -124,5 +144,37 @@
     <footer>
         <p>&copy; 2024 Daloha_col. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Scripts para carrusel -->
+    <script>
+        const carousels = document.querySelectorAll('.carousel-container');
+        carousels.forEach(carousel => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                carousel.classList.add('active');
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.classList.remove('active');
+            });
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 3; // Ajustar velocidad
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+    </script>
 </body>
 </html>
